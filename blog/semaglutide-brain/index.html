@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Semaglutide Is Actually Doing to Your Brain — GLP-1 Method</title>
+<meta name="description" content="GLP-1 receptor agonists do far more than suppress appetite. Here's what's actually happening in your brain on semaglutide — and why it changes the psychological work you need to do.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:      #12302D;
+    --forest-mid:  #1A4540;
+    --forest-light:#235550;
+    --gold:        #C9A84C;
+    --gold-light:  #E8C97A;
+    --sage:        #4A9E98;
+    --sage-light:  #7ABFBA;
+    --cream:       #F2EDE6;
+    --cream-dark:  #E8E0D5;
+    --white:       #FFFFFF;
+    --muted:       #8AADA9;
+    --text-dark:   #1C2B2B;
+    --text-mid:    #4A6060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 48, 45, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    color: rgba(242,237,230,0.55);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--cream); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── ARTICLE WRAPPER ── */
+  .article-wrap {
+    flex: 1;
+    padding-top: 80px;
+  }
+
+  /* ── ARTICLE HEADER ── */
+  .article-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 48px 56px;
+  }
+
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+  .article-back:hover { color: var(--text-mid); }
+
+  .article-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(74,158,152,0.12);
+    border: 1px solid var(--sage);
+    color: var(--sage-light);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .article-category::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+
+  .article-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--forest);
+    margin-bottom: 28px;
+  }
+
+  .article-header h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .article-byline {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .article-byline-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--forest);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .article-byline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .article-byline-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .article-byline-meta {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ── ARTICLE BODY ── */
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--forest);
+    margin: 52px 0 20px;
+  }
+
+  .article-body h2 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .article-body h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    margin: 36px 0 14px;
+  }
+
+  .article-body ul,
+  .article-body ol {
+    margin: 0 0 24px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .article-body ul li,
+  .article-body ol li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+    font-weight: 300;
+  }
+
+  .article-body ul li::before {
+    content: '→';
+    color: var(--gold);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .article-pull-quote {
+    border-left: 4px solid var(--gold);
+    padding: 20px 28px;
+    margin: 40px 0;
+    background: var(--white);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .article-pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.65;
+    color: var(--forest);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* ── BOTTOM CTA ── */
+  .post-cta {
+    background: var(--forest);
+    padding: 72px 48px;
+    margin-top: 24px;
+  }
+
+  .post-cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .post-cta-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 16px;
+  }
+
+  .post-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .post-cta h2 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .post-cta-sub {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 18px 44px;
+    border-radius: 100px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+  }
+
+  .btn-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(201,168,76,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest);
+    padding: 40px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .article-header > * {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+  .article-back       { animation-delay: 0.05s; }
+  .article-category   { animation-delay: 0.1s; }
+  .article-header h1  { animation-delay: 0.2s; }
+  .article-byline     { animation-delay: 0.32s; }
+
+  .article-body {
+    animation: fadeUp 0.7s ease 0.3s forwards;
+    opacity: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-link { display: none; }
+  }
+
+  @media (max-width: 860px) {
+    nav { padding: 16px 24px; }
+
+    .article-header {
+      padding: 64px 24px 40px;
+    }
+
+    .article-body {
+      padding: 0 24px 60px;
+    }
+
+    .post-cta {
+      padding: 56px 24px;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+      padding: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">GLP-1 Method</a>
+  <div class="nav-links">
+    <a href="/blog/" class="nav-link">Blog</a>
+    <a href="/assessment" class="nav-link">Free Assessment</a>
+    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook — $19</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <header class="article-header">
+    <a href="/blog/" class="article-back">← All articles</a>
+    <div class="article-category">Neuroscience</div>
+    <h1>What Semaglutide Is Actually<br>Doing to Your <em>Brain</em></h1>
+    <div class="article-byline">
+      <div class="article-byline-avatar">Z</div>
+      <div class="article-byline-text">
+        <span class="article-byline-name">Zane Guilfoyle, LPC</span>
+        <span class="article-byline-meta">April 11, 2026 · 8 min read</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <p><strong>[Placeholder — replace with your content]</strong> When most people think about semaglutide, they think about appetite. The medication makes you feel full faster, reduces hunger signals, and — for many people — dramatically quiets what's become known as "food noise." But that's a fraction of what's actually happening in your brain when you're on a GLP-1 receptor agonist.</p>
+
+    <p>The neuroscience is more interesting, and more consequential, than the headlines suggest. Understanding it doesn't just satisfy curiosity — it fundamentally changes the kind of psychological work you need to do while the medication is doing its job.</p>
+
+    <h2>GLP-1 Receptors and the <em>Reward System</em></h2>
+
+    <p>[Placeholder paragraph about GLP-1 receptors in the brain — hypothalamus, brainstem, dopamine reward circuits. How the medication isn't just suppressing hunger signals from the gut, but modulating the hedonic value of food itself. The experience of food as rewarding changes, not just the hunger drive.]</p>
+
+    <p>[Placeholder paragraph about what this means experientially — why foods that used to feel urgent or compelling suddenly feel neutral. The relationship between dopamine anticipation and compulsive eating behavior. What researchers are learning about GLP-1 agonists and addiction-related circuits more broadly.]</p>
+
+    <div class="article-pull-quote">
+      <p>"The medication doesn't just turn down the volume on hunger. It changes the way your brain assigns value to food — and that window, while it's open, is unlike anything most people have experienced before."</p>
+    </div>
+
+    <h2>The Dopamine Window: <em>What It Actually Means</em></h2>
+
+    <p>[Placeholder paragraph about the "dopamine window" concept — the period during which learned reward associations are weakened. Research on extinction learning and why this period matters for behavioral change. Why this is different from willpower or discipline.]</p>
+
+    <p>[Placeholder paragraph about why most people don't take advantage of this window — nobody tells them it exists, the focus is entirely on weight loss metrics, and there's no framework for the psychological work that would make the changes durable.]</p>
+
+    <h2>Why the Changes Often Don't Stick</h2>
+
+    <p>[Placeholder paragraph about rebound — what the data shows about food noise returning when medication stops or is reduced. The distinction between neurological changes and learned behavioral/emotional patterns. Why weight regain after stopping GLP-1s is so common despite the initial results.]</p>
+
+    <p>[Placeholder paragraph about emotional eating specifically — how the medication can quiet the biological hunger signal without touching the emotional triggers. Stress, boredom, loneliness, habit loops. These pathways exist independently of appetite regulation.]</p>
+
+    <ul>
+      <li>[Placeholder bullet: the role of the prefrontal cortex in emotional regulation and impulse control around food]</li>
+      <li>[Placeholder bullet: how stress hormones interact with GLP-1 signaling — why the medication works less well under chronic stress]</li>
+      <li>[Placeholder bullet: what behavioral science says about using reduced-craving windows to establish new habits]</li>
+      <li>[Placeholder bullet: the evidence for CBT-based interventions alongside pharmacological treatment]</li>
+    </ul>
+
+    <h2>What This Means for the <em>Work You Need to Do</em></h2>
+
+    <p>[Placeholder paragraph about the practical implication — the medication is doing something remarkable neurologically, but the emotional and behavioral patterns that drove the relationship with food are still there, waiting. This is the argument for doing psychological work now, while the window is open.]</p>
+
+    <p>[Placeholder paragraph about what that psychological work actually looks like — identifying emotional triggers, building awareness of non-hunger eating, developing coping strategies that don't involve food, building a relationship with your hunger cues while they're clearer. All the things the workbook addresses.]</p>
+
+    <p>The most important thing I tell people is this: the medication gave you something you've likely never had before — a break from the noise. <strong>Don't waste it waiting to see what the scale says.</strong> Use it to understand yourself.</p>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="post-cta">
+  <div class="post-cta-inner">
+    <p class="post-cta-label">Free Resource</p>
+    <h2>Understand your own<br><em>food noise patterns.</em></h2>
+    <p class="post-cta-sub">The Food Noise Assessment is a free, therapist-designed tool that helps you identify the emotional triggers, thought patterns, and behavioral habits driving your relationship with food.</p>
+    <a href="/assessment" class="btn-cta">Take the Free Food Noise Assessment →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">GLP-1 Method</span>
+  <span class="footer-copy">© 2025 GLP-1 Method · glp1method.com · Built by Zane Guilfoyle, LPC</span>
+</footer>
+
+</body>
+</html>

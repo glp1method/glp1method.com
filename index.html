@@ -56,6 +56,23 @@
     text-decoration: none;
   }
 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    color: rgba(242,237,230,0.55);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--cream); }
+
   .nav-cta {
     background: var(--gold);
     color: var(--forest);
@@ -845,6 +862,10 @@
   }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-link { display: none; }
+  }
+
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .hero { grid-template-columns: 1fr; padding: 100px 32px 60px; gap: 48px; }
@@ -866,8 +887,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">GLP-1 Method</a>
-  <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook — $19</a>
+  <a href="/" class="nav-logo">GLP-1 Method</a>
+  <div class="nav-links">
+    <a href="/blog/" class="nav-link">Blog</a>
+    <a href="/assessment" class="nav-link">Free Assessment</a>
+    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook — $19</a>
+  </div>
 </nav>
 
 <!-- HERO -->

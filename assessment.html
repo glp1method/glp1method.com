@@ -57,6 +57,23 @@
     text-decoration: none;
   }
 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    color: rgba(242,237,230,0.55);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--cream); }
+
   .nav-cta {
     background: transparent;
     color: var(--gold);
@@ -384,6 +401,10 @@
   }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-link { display: none; }
+  }
+
   @media (max-width: 860px) {
     nav { padding: 16px 24px; }
 
@@ -411,7 +432,10 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">GLP-1 Method</a>
-  <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Full Workbook →</a>
+  <div class="nav-links">
+    <a href="/blog/" class="nav-link">Blog</a>
+    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Full Workbook →</a>
+  </div>
 </nav>
 
 <!-- MAIN -->
@@ -695,7 +719,7 @@
                     </div>
                     <input type="hidden" name="ml-submit" value="1">
                     <div class="ml-form-embedSubmit">
-                      <button type="submit" class="primary">Send Me the Free Assessment →</button>
+                      <button type="submit" class="primary">Measure My Food Noise →</button>
                       <button disabled="disabled" style="display: none;" type="button" class="loading">
                         <div class="ml-form-embedSubmitLoad"></div>
                         <span class="sr-only">Loading...</span>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — GLP-1 Method</title>
+<meta name="description" content="Evidence-based writing on GLP-1 medications, food noise, emotional eating, and the psychology of lasting change. By Zane Guilfoyle, LPC.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:      #12302D;
+    --forest-mid:  #1A4540;
+    --forest-light:#235550;
+    --gold:        #C9A84C;
+    --gold-light:  #E8C97A;
+    --sage:        #4A9E98;
+    --sage-light:  #7ABFBA;
+    --cream:       #F2EDE6;
+    --cream-dark:  #E8E0D5;
+    --white:       #FFFFFF;
+    --muted:       #8AADA9;
+    --text-dark:   #1C2B2B;
+    --text-mid:    #4A6060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 48, 45, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    color: rgba(242,237,230,0.55);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--cream); }
+  .nav-link.active { color: var(--cream); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── BLOG HEADER ── */
+  .blog-header {
+    padding: 140px 48px 72px;
+    max-width: 1080px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .blog-header-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+  }
+
+  .blog-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--forest);
+    margin-bottom: 16px;
+  }
+
+  .blog-header h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .blog-header-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  .blog-header-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--gold);
+    margin-top: 32px;
+    border-radius: 2px;
+  }
+
+  /* ── POSTS GRID ── */
+  .posts-section {
+    flex: 1;
+    padding: 0 48px 100px;
+  }
+
+  .posts-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  /* ── POST CARD ── */
+  .post-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(18,48,45,0.12);
+  }
+
+  .post-card-thumb {
+    height: 200px;
+    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .post-card-thumb::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: var(--forest-mid);
+    opacity: 0.7;
+  }
+
+  .post-card-thumb::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(74,158,152,0.15);
+  }
+
+  .post-card-thumb-label {
+    position: absolute;
+    bottom: 20px;
+    left: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.3;
+    z-index: 1;
+    max-width: 220px;
+  }
+
+  .post-card-thumb-label em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .post-card-thumb-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+
+  .post-card-body {
+    padding: 28px 28px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .post-card-category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  .post-card-date {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .post-card-meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--cream-dark);
+    flex-shrink: 0;
+  }
+
+  .post-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--forest);
+    margin-bottom: 12px;
+    text-decoration: none;
+  }
+
+  .post-card-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+    font-weight: 300;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+
+  .post-card-read {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--sage);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .post-card:hover .post-card-read { gap: 10px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest);
+    padding: 40px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .blog-header > * {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+  .blog-header-label { animation-delay: 0.1s; }
+  .blog-header h1    { animation-delay: 0.2s; }
+  .blog-header-sub   { animation-delay: 0.3s; }
+  .blog-header-divider { animation-delay: 0.4s; }
+
+  .post-card {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+  .post-card:nth-child(1) { animation-delay: 0.2s; }
+  .post-card:nth-child(2) { animation-delay: 0.32s; }
+  .post-card:nth-child(3) { animation-delay: 0.44s; }
+  .post-card:nth-child(4) { animation-delay: 0.56s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-link { display: none; }
+  }
+
+  @media (max-width: 860px) {
+    nav { padding: 16px 24px; }
+
+    .blog-header {
+      padding: 120px 24px 56px;
+    }
+
+    .posts-section {
+      padding: 0 24px 72px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+      padding: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">GLP-1 Method</a>
+  <div class="nav-links">
+    <a href="/blog/" class="nav-link active">Blog</a>
+    <a href="/assessment" class="nav-link">Free Assessment</a>
+    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook — $19</a>
+  </div>
+</nav>
+
+<!-- BLOG HEADER -->
+<div class="blog-header">
+  <p class="blog-header-label">GLP-1 Method Journal</p>
+  <h1>The science and psychology of<br><em>lasting change.</em></h1>
+  <p class="blog-header-sub">Evidence-based writing on GLP-1 medications, food noise, emotional eating, and the behavioral work that makes the difference. By Zane Guilfoyle, LPC.</p>
+  <div class="blog-header-divider"></div>
+</div>
+
+<!-- POSTS -->
+<section class="posts-section">
+  <div class="posts-inner">
+    <div class="posts-grid">
+
+      <!-- POST: Semaglutide Brain -->
+      <a href="/blog/semaglutide-brain/" class="post-card">
+        <div class="post-card-thumb">
+          <div class="post-card-thumb-bar"></div>
+          <div class="post-card-thumb-label">What Semaglutide Is<br>Doing to Your <em>Brain</em></div>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <span class="post-card-category">Neuroscience</span>
+            <span class="post-card-meta-dot"></span>
+            <span class="post-card-date">April 11, 2026</span>
+          </div>
+          <div class="post-card-title">What Semaglutide Is Actually Doing to Your Brain</div>
+          <p class="post-card-excerpt">GLP-1 receptor agonists do far more than suppress appetite. Here's what's actually happening in your brain on semaglutide — and why understanding it changes everything about the psychological work you need to do.</p>
+          <span class="post-card-read">Read the article →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">GLP-1 Method</span>
+  <span class="footer-copy">© 2025 GLP-1 Method · glp1method.com · Built by Zane Guilfoyle, LPC</span>
+</footer>
+
+</body>
+</html>
