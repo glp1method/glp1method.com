@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Semaglutide Is Actually Doing to Your Brain | GLP-1 Method</title>
+<meta name="description" content="A licensed therapist explains how semaglutide affects your brain's reward system, mood, and emotional eating patterns — and what to do with the window it creates.">
+<meta property="og:title" content="What Semaglutide Is Actually Doing to Your Brain">
+<meta property="og:description" content="A licensed therapist explains how semaglutide affects your brain's reward system, mood, and emotional eating patterns — and what to do with the window it creates.">
+<meta property="og:url" content="https://glp1method.com/blog/what-semaglutide-does-to-your-brain">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:      #12302D;
+    --forest-mid:  #1A4540;
+    --forest-light:#235550;
+    --gold:        #C9A84C;
+    --gold-light:  #E8C97A;
+    --sage:        #4A9E98;
+    --sage-light:  #7ABFBA;
+    --cream:       #F2EDE6;
+    --cream-dark:  #E8E0D5;
+    --white:       #FFFFFF;
+    --muted:       #8AADA9;
+    --text-dark:   #1C2B2B;
+    --text-mid:    #4A6060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(18, 48, 45, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    color: rgba(242,237,230,0.55);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--cream); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── ARTICLE WRAPPER ── */
+  .article-wrap {
+    flex: 1;
+    padding-top: 80px;
+  }
+
+  /* ── ARTICLE HEADER ── */
+  .article-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 48px 48px;
+  }
+
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    margin-bottom: 36px;
+    transition: color 0.2s;
+  }
+  .article-back:hover { color: var(--text-mid); }
+
+  .article-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--forest);
+    margin-bottom: 24px;
+  }
+
+  .article-byline {
+    font-size: 0.88rem;
+    color: var(--muted);
+    padding-top: 20px;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .article-byline strong {
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  /* ── ARTICLE BODY ── */
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 48px 80px;
+  }
+
+  .article-body p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--forest);
+    margin: 52px 0 20px;
+  }
+
+  .article-body ul {
+    margin: 0 0 28px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .article-body ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--text-mid);
+    font-weight: 300;
+  }
+
+  .article-body ul li::before {
+    content: '→';
+    color: var(--gold);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .article-bio {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .article-bio p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+  .article-bio p a {
+    color: var(--sage);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(74,158,152,0.35);
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .article-bio p a:hover {
+    color: var(--text-dark);
+    border-color: rgba(28,43,43,0.4);
+  }
+
+  /* ── BOTTOM CTA ── */
+  .post-cta {
+    background: var(--forest);
+    padding: 72px 48px;
+  }
+
+  .post-cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .post-cta-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 16px;
+  }
+
+  .post-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .post-cta h2 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .post-cta-sub {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 36px;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--forest);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 18px 44px;
+    border-radius: 100px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+  }
+
+  .btn-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(201,168,76,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest);
+    padding: 40px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .article-header > * {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+  .article-back      { animation-delay: 0.05s; }
+  .article-header h1 { animation-delay: 0.15s; }
+  .article-byline    { animation-delay: 0.28s; }
+
+  .article-body {
+    animation: fadeUp 0.7s ease 0.25s forwards;
+    opacity: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-link { display: none; }
+  }
+
+  @media (max-width: 860px) {
+    nav { padding: 16px 24px; }
+
+    .article-header {
+      padding: 64px 24px 36px;
+    }
+
+    .article-body {
+      padding: 32px 24px 60px;
+    }
+
+    .post-cta {
+      padding: 56px 24px;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+      padding: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">GLP-1 Method</a>
+  <div class="nav-links">
+    <a href="/blog/" class="nav-link">Blog</a>
+    <a href="/assessment" class="nav-link">Free Assessment</a>
+    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook</a>
+  </div>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrap">
+
+  <header class="article-header">
+    <a href="/blog/" class="article-back">← All articles</a>
+    <h1>What Semaglutide Is Actually Doing to Your Brain</h1>
+    <div class="article-byline">
+      <strong>By Zane Guilfoyle, LPC, LAC, ACS</strong> | April 2026
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <p>Most people start semaglutide expecting a metabolic shift. What catches them off guard is everything else — the quiet, the changed relationship with alcohol, the mood fluctuations nobody warned them about, the strange emotional flatness some describe in the first weeks.</p>
+
+    <p>These aren't side effects in the conventional sense. They're your brain reorganizing itself around a molecule that was never just about weight loss.</p>
+
+    <p>As a behavioral health therapist who works at the intersection of mental health and metabolic medicine, I want to give you a clearer picture of what's actually happening up there — because understanding it changes how you use this window of time.</p>
+
+    <h2>GLP-1 Is Already in Your Brain</h2>
+
+    <p>Here's what most people don't know: GLP-1 isn't just a gut hormone. Your brainstem produces it naturally, and GLP-1 receptors are distributed throughout regions involved in reward, motivation, impulse control, and emotional regulation — the mesolimbic system, the prefrontal cortex, the hypothalamus.</p>
+
+    <p>When you inject semaglutide, you're not just sending a signal to your pancreas and stomach. You're sending a signal to your brain's reward circuitry.</p>
+
+    <p>This is why the effects go so far beyond appetite.</p>
+
+    <h2>The Reward System Piece</h2>
+
+    <p>The clearest evidence of GLP-1's brain effects is showing up in addiction research — and the findings are striking.</p>
+
+    <p>A 2025 randomized clinical trial published in JAMA Psychiatry found that people with alcohol use disorder who took low-dose semaglutide had significantly reduced alcohol craving, fewer heavy drinking days, and consumed less alcohol in controlled lab settings compared to placebo. The same participants who smoked also lit up less frequently.</p>
+
+    <p>This isn't a coincidence. GLP-1 is synthesized in brainstem neurons that project directly to areas involved in reward regulation, and GLP-1 analogs appear to dampen dopamine release in these reward centers.</p>
+
+    <p>Translation: semaglutide is quieting the same dopamine-driven signal that drives food noise, alcohol craving, and other compulsive patterns. The medication doesn't discriminate between cravings — it turns down the volume on the reward system more broadly.</p>
+
+    <p>For some people this is liberating. For others it creates an unfamiliar emotional flatness that's worth understanding before it catches you off guard.</p>
+
+    <h2>What This Means for Emotional Eating</h2>
+
+    <p>The food noise reduction most people experience on semaglutide is real and well-documented. But it's worth being precise about what's actually happening.</p>
+
+    <p>GLP-1 receptors in the hypothalamus regulate satiety signals. The medication makes your brain more responsive to fullness cues and less reactive to food-related reward signals. The pull toward highly palatable food — the psychological magnet quality that makes it hard to stop — genuinely diminishes for most people.</p>
+
+    <p>But here's the clinical reality I see repeatedly: the emotional patterns underneath the eating don't change.</p>
+
+    <p>The person who ate when stressed still gets stressed. The person who used food to manage loneliness is still lonely. The person who ate to numb out still has things they'd rather not feel. The medication quieted the behavior without touching the function it was serving.</p>
+
+    <p>This is the window. And most people don't realize it's there.</p>
+
+    <h2>The Mood Picture — Honest and Complicated</h2>
+
+    <p>I want to be straightforward with you here, because the public conversation on GLP-1s and mental health is a mess of overclaiming in both directions.</p>
+
+    <p>Some research suggests GLP-1 agonists may have antidepressant and anxiolytic properties through anti-inflammatory mechanisms and neurotransmitter modulation. Population-level data shows reduced depression risk in some cohorts.</p>
+
+    <p>At the same time, research has found GLP-1s may drive depression and suicidal ideation in people with a genetic predisposition toward low dopamine function. There are documented case reports of significant mood disruptions that resolved after discontinuation.</p>
+
+    <p>Large-scale studies haven't confirmed a statistically significant suicidality risk overall, but there appears to be a meaningful signal among people concurrently using antidepressants or benzodiazepines — groups already at elevated psychiatric risk.</p>
+
+    <p>What does this mean practically?</p>
+
+    <p>If you have a history of depression, are currently on psychiatric medications, or notice meaningful mood changes after starting semaglutide — that deserves clinical attention, not just a wait-and-see approach. These are not minor considerations to push through.</p>
+
+    <p>If you're feeling emotionally flat, less motivated, or finding that the things that used to bring pleasure feel muted — that's worth naming to your prescriber. It may be dose-related. It may be temporary. But it's also information.</p>
+
+    <h2>Working With the Window</h2>
+
+    <p>The behavioral health case for doing psychological work while on GLP-1 medication is straightforward: the medication reduces the intensity of the patterns you're trying to change. That makes the work easier, not unnecessary.</p>
+
+    <p>Think of it like physical therapy after surgery. The surgery creates the condition for healing. The therapy is what builds the new capacity so you're not back where you started when the surgical effects fade.</p>
+
+    <p>The questions worth sitting with:</p>
+
+    <ul>
+      <li>What has food been doing for you emotionally that has nothing to do with hunger?</li>
+      <li>What happens to stress, boredom, loneliness, or celebration in your body when food isn't the automatic answer?</li>
+      <li>What habits, skills, and emotional tools do you want in place before this medication window closes?</li>
+    </ul>
+
+    <p>These aren't abstract questions. They're the difference between lasting change and a temporary interruption in a pattern that will return.</p>
+
+    <h2>A Note on What We Don't Know Yet</h2>
+
+    <p>The research on GLP-1s and behavioral health is moving fast but is still early. Most of the strongest findings come from observational data — people who were prescribed semaglutide for diabetes or obesity and happened to also drink less or feel better. Randomized controlled trials with behavioral health as the primary outcome are still underway.</p>
+
+    <p>That matters because it means we're working with a picture that's still coming into focus. The mechanism is clear. The clinical implications are promising. The nuance — who benefits, who should be cautious, what the long-term psychiatric profile looks like — is still being written.</p>
+
+    <p>As that research develops, I'll be covering it here from a behavioral health lens. Because this conversation deserves more than weight loss influencers on one side and dense clinical literature on the other.</p>
+
+    <div class="article-bio">
+      <p>Zane Guilfoyle is a Licensed Professional Counselor and the author of <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank">Beyond the Medication</a>, a therapist-designed workbook for lasting psychological change on GLP-1s.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="post-cta">
+  <div class="post-cta-inner">
+    <p class="post-cta-label">Free Resource</p>
+    <h2>Understand your own<br><em>food noise patterns.</em></h2>
+    <p class="post-cta-sub">The Food Noise Assessment is a free, therapist-designed tool that helps you identify the emotional triggers, thought patterns, and behavioral habits driving your relationship with food.</p>
+    <a href="/assessment" class="btn-cta">Take the Free Food Noise Assessment →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">GLP-1 Method</span>
+  <span class="footer-copy">© 2026 GLP-1 Method · glp1method.com · Built by Zane Guilfoyle, LPC</span>
+</footer>
+
+</body>
+</html>

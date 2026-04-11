@@ -75,17 +75,19 @@
   .nav-link:hover { color: var(--cream); }
 
   .nav-cta {
-    background: transparent;
-    color: var(--gold);
+    background: var(--gold);
+    color: var(--forest);
     font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.82rem;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 100px;
     text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.2s;
+    transition: background 0.2s;
   }
-  .nav-cta:hover { opacity: 1; }
+  .nav-cta:hover { background: var(--gold-light); }
 
   /* ── MAIN LAYOUT ── */
   main {
@@ -434,7 +436,8 @@
   <a href="/" class="nav-logo">GLP-1 Method</a>
   <div class="nav-links">
     <a href="/blog/" class="nav-link">Blog</a>
-    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Full Workbook →</a>
+    <a href="/assessment" class="nav-link">Free Assessment</a>
+    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook</a>
   </div>
 </nav>
 
@@ -750,7 +753,7 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">GLP-1 Method</span>
-  <span class="footer-copy">© 2025 GLP-1 Method · glp1method.com · Built by Zane Guilfoyle, LPC</span>
+  <span class="footer-copy">© 2026 GLP-1 Method · glp1method.com · Built by Zane Guilfoyle, LPC</span>
 </footer>
 
 <script>
