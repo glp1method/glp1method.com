@@ -863,7 +863,21 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
-    .nav-link { display: none; }
+    nav {
+      flex-wrap: wrap;
+      padding: 12px 20px;
+      gap: 0;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: flex-start;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      gap: 16px;
+    }
+    .nav-link { font-size: 0.78rem; }
+    .nav-cta { font-size: 0.75rem; padding: 8px 14px; }
   }
 
   @media (max-width: 900px) {
@@ -1121,7 +1135,7 @@
     <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="btn-buy">Get Instant Access — $19 →</a>
     <p class="buy-guarantee">🔒 Secure checkout. Instant PDF delivery.</p>
   </div>
-  <p class="buy-soft-cta">Not ready to commit? <a href="/assessment.html">Start with the free Food Noise Assessment →</a></p>
+  <p class="buy-soft-cta">Not ready to commit? <a href="/assessment">Start with the free Food Noise Assessment →</a></p>
 </section>
 
 <!-- FAQ -->
