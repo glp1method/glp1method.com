@@ -1,772 +1,849 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Food Noise Assessment — GLP-1 Method</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --forest:      #12302D;
-    --forest-mid:  #1A4540;
-    --forest-light:#235550;
-    --gold:        #C9A84C;
-    --gold-light:  #E8C97A;
-    --sage:        #4A9E98;
-    --sage-light:  #7ABFBA;
-    --cream:       #F2EDE6;
-    --cream-dark:  #E8E0D5;
-    --white:       #FFFFFF;
-    --muted:       #8AADA9;
-    --text-dark:   #1C2B2B;
-    --text-mid:    #4A6060;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Loud Is Your Food Noise? | GLP-1 Method</title>
+  <meta name="description" content="A free 5-question assessment that reveals your Food Noise Profile — and what to do with it. Developed by Zane Guilfoyle, LPC, LAC, ACS, ADS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 18px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(18, 48, 45, 0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--gold);
-    letter-spacing: 0.04em;
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
-
-  .nav-link {
-    color: rgba(242,237,230,0.55);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-link:hover { color: var(--cream); }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--forest);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.82rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 10px 24px;
-    border-radius: 100px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--gold-light); }
-
-  /* ── MAIN LAYOUT ── */
-  main {
-    flex: 1;
-    padding-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* ── PAGE WRAPPER ── */
-  .page-wrap {
-    width: 100%;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 72px 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  /* ── LEFT: COPY ── */
-  .copy-col {}
-
-  .free-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(74,158,152,0.15);
-    border: 1px solid var(--sage);
-    color: var(--sage-light);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-  }
-
-  .free-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--sage);
-  }
-
-  .copy-col h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--forest);
-    margin-bottom: 20px;
-  }
-
-  .copy-col h1 em {
-    color: var(--gold);
-    font-style: italic;
-  }
-
-  .copy-intro {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--text-mid);
-    font-weight: 300;
-    margin-bottom: 36px;
-    max-width: 460px;
-  }
-
-  .copy-intro strong {
-    color: var(--text-dark);
-    font-weight: 500;
-  }
-
-  .what-you-get {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-
-  .what-you-get li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 0.95rem;
-    color: var(--text-mid);
-    line-height: 1.5;
-  }
-
-  .what-you-get li::before {
-    content: '✓';
-    color: var(--sage);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .copy-footer-note {
-    font-size: 0.8rem;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  /* ── RIGHT: FORM CARD ── */
-  .form-col {}
-
-  .form-card {
-    background: var(--forest);
-    border-radius: 24px;
-    padding: 48px 44px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(201,168,76,0.15);
-    box-shadow: 0 32px 80px rgba(18,48,45,0.25);
-  }
-
-  .form-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  }
-
-  /* Decorative circles */
-  .form-card-circle-1 {
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: var(--forest-mid);
-    opacity: 0.6;
-  }
-
-  .form-card-circle-2 {
-    position: absolute;
-    bottom: -40px; left: -40px;
-    width: 140px; height: 140px;
-    border-radius: 50%;
-    background: rgba(74,158,152,0.1);
-  }
-
-  .form-card-inner { position: relative; z-index: 1; }
-
-  .form-card-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 12px;
-  }
-
-  .form-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--cream);
-    line-height: 1.25;
-    margin-bottom: 8px;
-  }
-
-  .form-card-title span { color: var(--gold); }
-
-  .form-card-sub {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 32px;
-    font-weight: 300;
-  }
-
-  /* ── MAILERLITE EMBED OVERRIDES ── */
-  #mlb2-37740817.ml-form-embedContainer {
-    width: 100% !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper {
-    background-color: transparent !important;
-    border: none !important;
-    width: 100% !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper.embedForm {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody {
-    padding: 0 !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent {
-    display: none; /* We handle the heading above the form */
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {
-    background-color: rgba(255,255,255,0.08) !important;
-    color: var(--cream) !important;
-    border-color: rgba(201,168,76,0.3) !important;
-    border-radius: 12px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.95rem !important;
-    padding: 14px 18px !important;
-    transition: border-color 0.2s;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::placeholder {
-    color: var(--muted) !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:focus {
-    border-color: var(--gold) !important;
-    outline: none;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit {
-    margin: 12px 0 0 0 !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.primary {
-    background-color: var(--gold) !important;
-    border: none !important;
-    border-radius: 100px !important;
-    color: var(--forest) !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 1rem !important;
-    font-weight: 700 !important;
-    padding: 16px !important;
-    letter-spacing: 0.02em;
-    transition: background 0.2s, transform 0.2s !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.primary:hover {
-    background-color: var(--gold-light) !important;
-    transform: translateY(-2px);
-  }
-
-  /* Success state */
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-    padding: 0 !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
-    color: var(--gold) !important;
-    font-family: 'Playfair Display', serif !important;
-    font-size: 1.5rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 10px !important;
-  }
-
-  #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {
-    color: var(--muted) !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.95rem !important;
-  }
-
-  .form-privacy {
-    margin-top: 14px;
-    font-size: 0.76rem;
-    color: var(--muted);
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--forest);
-    padding: 28px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(201,168,76,0.1);
-    flex-shrink: 0;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: var(--gold);
-  }
-
-  .footer-copy {
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .copy-col > * {
-    animation: fadeUp 0.7s ease forwards;
-    opacity: 0;
-  }
-  .free-badge    { animation-delay: 0.1s; }
-  .copy-col h1   { animation-delay: 0.2s; }
-  .copy-intro    { animation-delay: 0.32s; }
-  .what-you-get  { animation-delay: 0.42s; }
-  .copy-footer-note { animation-delay: 0.5s; }
-
-  .form-col {
-    animation: fadeUp 0.8s ease 0.3s forwards;
-    opacity: 0;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .nav-link { display: none; }
-  }
-
-  @media (max-width: 860px) {
-    nav { padding: 16px 24px; }
-
-    .page-wrap {
-      grid-template-columns: 1fr;
-      gap: 48px;
-      padding: 56px 24px;
+    :root {
+      --dark:   #1a1a1a;
+      --gold:   #c8b97a;
+      --cream:  #f5f4f0;
+      --mid:    #e8e4da;
+      --muted:  #888880;
+      --text:   #2a2a2a;
+      --serif:  'Playfair Display', Georgia, serif;
+      --sans:   'DM Sans', system-ui, sans-serif;
     }
 
-    footer {
-      flex-direction: column;
-      gap: 10px;
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background-color: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(18, 48, 45, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #C9A84C;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      color: rgba(242,237,230,0.55);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #F2EDE6; }
+    .nav-link.active { color: #F2EDE6; }
+
+    .nav-cta {
+      background: #C9A84C;
+      color: #12302D !important;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #E8C97A; }
+
+    /* ── LAYOUT ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 42px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: italic; color: var(--dark); }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .body-text {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #555550;
+      margin-bottom: 24px;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 48px;
+    }
+    .pip {
+      height: 2px;
+      flex: 1;
+      background: var(--mid);
+      border-radius: 2px;
+      transition: background 0.35s ease;
+    }
+    .pip.done { background: var(--dark); }
+    .pip.active { background: var(--gold); }
+
+    /* ── QUESTION ── */
+    .q-number {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .q-text {
+      font-family: var(--serif);
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .q-hint {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    /* ── OPTIONS ── */
+    .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      background: #fff;
+      border: 1px solid var(--mid);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .option:hover { border-color: #ccc; }
+    .option.selected {
+      border-color: var(--dark);
+      background: var(--cream);
+    }
+    .option-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .option.selected .option-num {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: #fff;
+    }
+    .option-label { font-size: 14px; color: var(--text); line-height: 1.4; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--dark);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      text-decoration: none;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn:disabled { opacity: 0.3; cursor: default; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--dark);
+      border: 1px solid var(--mid);
+    }
+    .btn-ghost:hover { background: var(--mid); opacity: 1; }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .btn-full { width: 100%; justify-content: center; }
+    .btn-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--mid); margin: 40px 0; }
+
+    /* ── RESULT SCREEN ── */
+    .score-display {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .score-number {
+      font-family: var(--serif);
+      font-size: 72px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--dark);
+    }
+    .score-meta {
+      padding-bottom: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .profile-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border: 1px solid var(--mid);
+      border-radius: 99px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .result-teaser {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--dark);
+      font-style: italic;
+      padding: 24px 28px;
+      border-left: 3px solid var(--gold);
+      background: #fff;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 28px;
+    }
+    .result-preview {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #555550;
+      margin-bottom: 0;
+    }
+
+    /* ── GATE BOX ── */
+    .gate-box {
+      background: var(--dark);
+      border-radius: 4px;
+      padding: 36px 36px 32px;
+      margin-top: 40px;
+    }
+    .gate-box h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .gate-box p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .gate-input {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 3px;
+      font-family: var(--sans);
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .gate-input::placeholder { color: rgba(255,255,255,0.3); }
+    .gate-input:focus { border-color: var(--gold); }
+    .gate-input.error { border-color: #e06060; }
+    .gate-fine {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
       text-align: center;
-      padding: 24px;
+      margin-top: 12px;
+      letter-spacing: 0.04em;
     }
-  }
 
-  @media (max-width: 480px) {
-    .form-card { padding: 36px 28px; }
-  }
-</style>
+    /* ── SENDER FORM OVERRIDES (gate box) ── */
+    .gate-box .sender-form-field input[type="email"] {
+      background: rgba(255,255,255,0.08) !important;
+      border: 1px solid rgba(255,255,255,0.15) !important;
+      border-radius: 3px !important;
+      color: #fff !important;
+      font-family: var(--sans) !important;
+      font-size: 15px !important;
+      padding: 13px 16px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .gate-box .sender-form-field input[type="email"]::placeholder {
+      color: rgba(255,255,255,0.3) !important;
+    }
+    .gate-box .sender-form-field input[type="email"]:focus {
+      border-color: var(--gold) !important;
+    }
+    .gate-box .sender-form-field button,
+    .gate-box .sender-form-field input[type="submit"] {
+      background: var(--gold) !important;
+      color: var(--dark) !important;
+      border: none !important;
+      border-radius: 3px !important;
+      font-family: var(--sans) !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      padding: 14px !important;
+      width: 100% !important;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .gate-box .sender-form-field button:hover,
+    .gate-box .sender-form-field input[type="submit"]:hover { opacity: 0.85; }
+    .gate-box .sender-form-field label,
+    .gate-box .sender-form-field p {
+      color: rgba(255,255,255,0.6) !important;
+      font-family: var(--sans) !important;
+      font-size: 13px !important;
+    }
+    .gate-skip {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .gate-skip:hover { color: var(--dark); }
+
+    /* ── THANK YOU ── */
+    .check-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .workbook-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      border: 1px solid var(--mid);
+      border-radius: 4px;
+      background: #fff;
+      margin-top: 28px;
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+    .workbook-card:hover { border-color: var(--dark); }
+    .workbook-card-title {
+      font-family: var(--serif);
+      font-size: 16px;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+    .workbook-card-sub { font-size: 13px; color: var(--muted); }
+    .workbook-card-price {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--dark);
+      flex-shrink: 0;
+    }
+
+    /* ── INTRO FEATURES ── */
+    .feature-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .feature-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── INTRO DARK BAND ── */
+    .intro-band {
+      background: var(--dark);
+      border-radius: 4px;
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+    .intro-band p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .intro-band strong {
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #12302D;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #C9A84C;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-size: 12px;
+      color: #8AADA9;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #F2EDE6; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .page.active .container { animation: fadeUp 0.35s ease both; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      nav { flex-wrap: wrap; padding: 12px 20px; gap: 0; }
+      .nav-links { width: 100%; justify-content: flex-start; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(201,168,76,0.15); gap: 16px; }
+      .nav-link { font-size: 0.78rem; }
+      .nav-cta { font-size: 0.75rem; padding: 8px 14px; }
+      .container { padding: 40px 20px 60px; }
+      .gate-box { padding: 28px 24px; }
+      footer { padding: 20px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo">GLP-1 Method</a>
-  <div class="nav-links">
-    <a href="/blog/" class="nav-link">Blog</a>
-    <a href="/assessment" class="nav-link">Free Assessment</a>
-    <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook</a>
-  </div>
-</nav>
-
-<!-- MAIN -->
-<main>
-  <div class="page-wrap">
-
-    <!-- LEFT: COPY -->
-    <div class="copy-col">
-      <div class="free-badge">Free Download</div>
-      <h1>How loud is your<br><em>food noise?</em></h1>
-      <p class="copy-intro">
-        GLP-1s quiet the craving — but they can't rewire the emotional patterns beneath it.
-        <strong>Get a free sample of the workbook</strong> and discover exactly what's driving your relationship with food.
-      </p>
-      <ul class="what-you-get">
-        <li>A therapist-designed Food Noise Assessment tool</li>
-        <li>Sample exercises from the full workbook</li>
-        <li>An introduction to the CBT framework behind the method</li>
-        <li>Insight into your specific emotional eating patterns</li>
-      </ul>
-      <p class="copy-footer-note">🔒 No spam. Unsubscribe anytime. Instant download.</p>
+  <nav>
+    <a href="/" class="nav-logo">GLP-1 Method</a>
+    <div class="nav-links">
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/assessment" class="nav-link active">Free Assessment</a>
+      <a href="https://glp1method.gumroad.com/l/tuajms" target="_blank" class="nav-cta">Get the Workbook</a>
     </div>
+  </nav>
 
-    <!-- RIGHT: FORM -->
-    <div class="form-col">
-      <div class="form-card">
-        <div class="form-card-circle-1"></div>
-        <div class="form-card-circle-2"></div>
-        <div class="form-card-inner">
-          <p class="form-card-label">Free Resource</p>
-          <h2 class="form-card-title">The <span>Food Noise</span><br>Assessment</h2>
-          <p class="form-card-sub">Enter your email and we'll send you the free assessment + a sample of the workbook instantly.</p>
+  <!-- PAGE: INTRO -->
+  <div class="page active" id="page-intro">
+    <div class="container">
+      <p class="eyebrow">Free Assessment · GLP-1 Method</p>
+      <h1>How loud is your<br><em>food noise?</em></h1>
+      <p class="body-text">5 questions. About 2 minutes. You'll see your Food Noise Profile immediately — no email required to get your result.</p>
 
-          <!-- MAILERLITE EMBED -->
-          <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1771946");</style>
-          <style type="text/css">
-            .ml-form-embedSubmitLoad {
-              display: inline-block;
-              width: 20px;
-              height: 20px;
-            }
-            .g-recaptcha {
-              transform: scale(1);
-              -webkit-transform: scale(1);
-              transform-origin: 0 0;
-              -webkit-transform-origin: 0 0;
-            }
-            .sr-only {
-              position: absolute;
-              width: 1px;
-              height: 1px;
-              padding: 0;
-              margin: -1px;
-              overflow: hidden;
-              clip: rect(0,0,0,0);
-              border: 0;
-            }
-            .ml-form-embedSubmitLoad:after {
-              content: " ";
-              display: block;
-              width: 11px;
-              height: 11px;
-              margin: 1px;
-              border-radius: 50%;
-              border: 4px solid #fff;
-              border-color: #ffffff #ffffff #ffffff transparent;
-              animation: ml-form-embedSubmitLoad 1.2s linear infinite;
-            }
-            @keyframes ml-form-embedSubmitLoad {
-              0%   { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-            #mlb2-37740817.ml-form-embedContainer {
-              box-sizing: border-box;
-              display: table;
-              margin: 0 auto;
-              position: static;
-              width: 100% !important;
-            }
-            #mlb2-37740817.ml-form-embedContainer h4,
-            #mlb2-37740817.ml-form-embedContainer p,
-            #mlb2-37740817.ml-form-embedContainer span,
-            #mlb2-37740817.ml-form-embedContainer button {
-              text-transform: none !important;
-              letter-spacing: normal !important;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper {
-              background-color: #f6f6f6;
-              border-width: 0px;
-              border-color: transparent;
-              border-radius: 4px;
-              border-style: solid;
-              box-sizing: border-box;
-              display: inline-block !important;
-              margin: 0;
-              padding: 0;
-              position: relative;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper.embedPopup,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { width: 400px; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 400px; width: 100%; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-align-left { text-align: left; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-align-center { text-align: center; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-align-default { display: table-cell !important; vertical-align: middle !important; text-align: center !important; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-align-right { text-align: right; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedHeader img {
-              border-top-left-radius: 4px;
-              border-top-right-radius: 4px;
-              height: auto;
-              margin: 0 auto !important;
-              max-width: 100%;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-              padding: 20px 20px 0 20px;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody.ml-form-embedBodyHorizontal {
-              padding-bottom: 0;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {
-              text-align: left;
-              margin: 0 0 20px 0;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
-              color: #000000;
-              font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-              font-size: 30px;
-              font-weight: 400;
-              margin: 0 0 10px 0;
-              text-align: left;
-              word-break: break-word;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {
-              color: #000000;
-              font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-              font-size: 14px;
-              font-weight: 400;
-              line-height: 20px;
-              margin: 0 0 10px 0;
-              text-align: left;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ul,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ul,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol {
-              color: #000000;
-              font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-              font-size: 14px;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p a,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p a {
-              color: #000000;
-              text-decoration: underline;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group {
-              text-align: left!important;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group label {
-              margin-bottom: 5px;
-              color: #333333;
-              font-size: 14px;
-              font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-              font-weight: bold;
-              font-style: normal;
-              text-decoration: none;
-              display: inline-block;
-              line-height: 20px;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p:last-child,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p:last-child {
-              margin: 0;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form {
-              margin: 0;
-              width: 100%;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent,
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {
-              margin: 0 0 20px 0;
-              width: 100%;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {
-              float: left;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent.horozintalForm {
-              margin: 0;
-              padding: 0 0 20px 0;
-              width: 100%;
-              height: auto;
-              float: left;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow {
-              margin: 0 0 10px 0;
-              width: 100%;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-last-item {
-              margin: 0;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {
-              background-color: #ffffff !important;
-              color: #333333 !important;
-              border-color: #cccccc;
-              border-radius: 4px !important;
-              border-style: solid !important;
-              border-width: 1px !important;
-              font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-              font-size: 14px !important;
-              height: auto;
-              line-height: 21px !important;
-              margin-bottom: 0;
-              margin-top: 0;
-              margin-left: 0;
-              margin-right: 0;
-              padding: 10px 10px !important;
-              width: 100% !important;
-              box-sizing: border-box !important;
-              max-width: 100% !important;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-webkit-input-placeholder { color: #333333; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-moz-placeholder { color: #333333; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-ms-input-placeholder { color: #333333; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-moz-placeholder { color: #333333; }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit {
-              margin: 0 0 20px 0;
-              float: left;
-              width: 100%;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button {
-              background-color: #000000 !important;
-              border: none !important;
-              border-radius: 4px !important;
-              box-shadow: none !important;
-              color: #ffffff !important;
-              cursor: pointer;
-              font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-              font-size: 14px !important;
-              font-weight: 700 !important;
-              line-height: 21px !important;
-              height: auto;
-              padding: 10px !important;
-              width: 100% !important;
-              box-sizing: border-box !important;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.loading {
-              display: none;
-            }
-            #mlb2-37740817.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {
-              background-color: #333333 !important;
-            }
-            .ml-error input, .ml-error textarea, .ml-error select {
-              border-color: red!important;
-            }
-            .ml-error .label-description,
-            .ml-error .label-description p,
-            .ml-error label:first-child {
-              color: #ff0000 !important;
-            }
-            @media only screen and (max-width: 400px){
-              .ml-form-embedWrapper.embedDefault, .ml-form-embedWrapper.embedPopup { width: 100%!important; }
-            }
-          </style>
+      <div class="feature-row">
+        <span class="feature"><span class="feature-dot"></span>5 questions</span>
+        <span class="feature"><span class="feature-dot"></span>Instant result</span>
+        <span class="feature"><span class="feature-dot"></span>No email required to see your score</span>
+        <span class="feature"><span class="feature-dot"></span>Developed by a licensed therapist</span>
+      </div>
 
-          <div id="mlb2-37740817" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-37740817">
-            <div class="ml-form-align-center">
-              <div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                  <div class="ml-form-embedContent" style="display:none;">
-                    <h4>Want the free Food Noise Assessment?</h4>
-                    <p>Sign up below!</p>
-                  </div>
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2146987/forms/180538046128588535/subscribe" data-code="" method="post" target="_blank">
-                    <div class="ml-form-formContent">
-                      <div class="ml-form-fieldRow ml-last-item">
-                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                          <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Enter your email address" autocomplete="email">
-                        </div>
-                      </div>
-                    </div>
-                    <input type="hidden" name="ml-submit" value="1">
-                    <div class="ml-form-embedSubmit">
-                      <button type="submit" class="primary">Measure My Food Noise →</button>
-                      <button disabled="disabled" style="display: none;" type="button" class="loading">
-                        <div class="ml-form-embedSubmitLoad"></div>
-                        <span class="sr-only">Loading...</span>
-                      </button>
-                    </div>
-                    <input type="hidden" name="anticsrf" value="true">
-                  </form>
-                </div>
-                <div class="ml-form-successBody row-success" style="display: none">
-                  <div class="ml-form-successContent">
-                    <h4>Check your inbox!</h4>
-                    <p>Your free Food Noise Assessment is on its way. While you wait — the full workbook is available now.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /MAILERLITE EMBED -->
+      <div class="intro-band">
+        <p><strong>What is food noise?</strong> The persistent mental chatter about food that lives in your head regardless of whether you're physically hungry — the constant planning, the pull toward certain foods, the cravings that show up even right after eating. GLP-1 medications quiet it for many people. But quieter isn't the same as resolved. This assessment helps you understand where you actually are.</p>
+      </div>
 
-          <p class="form-privacy">🔒 No spam. Your info stays private. Unsubscribe anytime.</p>
-        </div>
+      <button class="btn" onclick="startAssessment()">Start the assessment →</button>
+      <p style="margin-top:16px;font-size:12px;color:var(--muted);">Developed by Zane Guilfoyle, LPC, LAC, ACS, ADS</p>
+    </div>
+  </div>
+
+  <!-- PAGE: QUESTIONS -->
+  <div class="page" id="page-questions">
+    <div class="container">
+      <div class="progress-wrap" id="progress"></div>
+      <div id="question-content"></div>
+      <div class="btn-row">
+        <button class="btn" id="btn-next" onclick="nextQuestion()" disabled>Next →</button>
+        <button class="btn btn-ghost" id="btn-back" onclick="prevQuestion()" style="display:none;">← Back</button>
       </div>
     </div>
-
   </div>
-</main>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">GLP-1 Method</span>
-  <span class="footer-copy">© 2026 GLP-1 Method · glp1method.com · Built by Zane Guilfoyle, LPC</span>
-</footer>
+  <!-- PAGE: RESULT -->
+  <div class="page" id="page-result">
+    <div class="container">
+      <p class="eyebrow">Your result</p>
+      <div class="score-display">
+        <span class="score-number" id="result-score"></span>
+        <span class="score-meta">out of 25<br><span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Food Noise Score</span></span>
+      </div>
+      <div class="profile-pill" id="result-badge"></div>
+      <h2 id="result-headline"></h2>
+      <div class="result-teaser" id="result-teaser"></div>
+      <p class="result-preview" id="result-preview"></p>
 
-<script>
-  function ml_webform_success_37740817() {
-    var $ = ml_jQuery || jQuery;
-    $('.ml-subscribe-form-37740817 .row-success').show();
-    $('.ml-subscribe-form-37740817 .row-form').hide();
-  }
-</script>
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-<script>
-  fetch("https://assets.mailerlite.com/jsonp/2146987/forms/180538046128588535/takel")
-</script>
+      <div class="gate-box">
+        <h3>Get your full profile breakdown</h3>
+        <p>What's clinically driving your score, what it means for your relationship with food, and a clear recommended next step — sent directly to your inbox.</p>
+        <div id="sender-form-quiet-aware" class="sender-form-wrap" style="display:none">
+          <div style="text-align:left" class="sender-form-field" data-sender-form-id="erkGVp"></div>
+        </div>
+        <div id="sender-form-moderate-noise" class="sender-form-wrap" style="display:none">
+          <div style="text-align:left" class="sender-form-field" data-sender-form-id="av2ML5"></div>
+        </div>
+        <div id="sender-form-significant-noise" class="sender-form-wrap" style="display:none">
+          <div style="text-align:left" class="sender-form-field" data-sender-form-id="dwpN78"></div>
+        </div>
+        <div id="sender-form-loud-persistent" class="sender-form-wrap" style="display:none">
+          <div style="text-align:left" class="sender-form-field" data-sender-form-id="axk0LB"></div>
+        </div>
+        <p class="gate-fine">No spam. Unsubscribe anytime.</p>
+      </div>
+
+      <span class="gate-skip" onclick="goTo('page-result-skip')">Skip for now</span>
+    </div>
+  </div>
+
+  <!-- PAGE: RESULT SKIP (no email) -->
+  <div class="page" id="page-result-skip">
+    <div class="container">
+      <p class="eyebrow">Your result</p>
+      <div class="score-display">
+        <span class="score-number" id="skip-score"></span>
+        <span class="score-meta">out of 25<br><span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Food Noise Score</span></span>
+      </div>
+      <div class="profile-pill" id="skip-badge"></div>
+      <h2 id="skip-headline"></h2>
+      <div class="result-teaser" id="skip-teaser"></div>
+      <p class="result-preview" id="skip-preview"></p>
+      <hr>
+      <p class="body-text" style="margin-bottom:16px;">Ready to go deeper? The workbook was built for exactly where you are.</p>
+      <a href="https://glp1method.gumroad.com/l/tuajms" class="btn">Get the Workbook — $19 →</a>
+    </div>
+  </div>
+
+  <!-- PAGE: THANK YOU -->
+  <div class="page" id="page-thanks">
+    <div class="container">
+      <div class="check-circle">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 10l4 4 8-8" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="eyebrow">You're in</p>
+      <h1 style="font-size:clamp(26px,4vw,36px);">Check your inbox</h1>
+      <p class="body-text">Your full <strong id="thanks-profile"></strong> profile breakdown is on its way — what's driving your score, what it means clinically, and a recommended next step written specifically for where you are.</p>
+      <hr>
+      <p style="font-size:14px;color:var(--muted);margin-bottom:4px;">While you wait — the workbook built for your profile:</p>
+      <a href="https://glp1method.gumroad.com/l/tuajms" class="workbook-card">
+        <div class="workbook-card-text">
+          <div class="workbook-card-title">Beyond the Medication</div>
+          <div class="workbook-card-sub">A Therapist's Workbook for Lasting Change on GLP-1s</div>
+        </div>
+        <div class="workbook-card-price">$19 →</div>
+      </a>
+      <p style="margin-top:28px;font-size:13px;color:var(--muted);">Have questions? <a href="mailto:zane@glp1method.com" style="color:var(--dark);">zane@glp1method.com</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">GLP-1 Method</span>
+    <div class="footer-links">
+      <a href="/blog/">Blog</a>
+      <a href="https://glp1method.gumroad.com/l/tuajms">Workbook</a>
+      <a href="/assessment">Assessment</a>
+    </div>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        q: "How often do you think about food when you're not physically hungry?",
+        hint: "Include planning your next meal, craving specific foods, or food just drifting into your thoughts.",
+        options: ["Rarely or never", "Occasionally", "Sometimes", "Often", "Almost always"]
+      },
+      {
+        q: "When you feel stressed, bored, lonely, or anxious — how strong is the pull toward food?",
+        hint: "Even if you don't act on it, rate how intense the urge feels.",
+        options: ["No pull at all", "Mild pull", "Moderate pull", "Strong pull", "Overwhelming pull"]
+      },
+      {
+        q: "How difficult is it to stop eating once you've started, even when you feel full?",
+        hint: "Think about meals, snacks, or specific trigger foods.",
+        options: ["Very easy to stop", "Somewhat easy", "Neutral", "Somewhat difficult", "Very difficult"]
+      },
+      {
+        q: "How much mental energy do you spend on food-related thoughts in a typical day?",
+        hint: "Include guilt after eating, planning around food, or trying to resist cravings.",
+        options: ["Almost none", "A small amount", "A moderate amount", "A lot", "Nearly constant"]
+      },
+      {
+        q: "How worried are you about what happens to your eating patterns if your GLP-1 medication changes or stops?",
+        hint: "Rate your anxiety level honestly — even if the change isn't imminent.",
+        options: ["Not worried at all", "Slightly worried", "Moderately worried", "Very worried", "Extremely worried"]
+      }
+    ];
+
+    const profiles = [
+      {
+        range: [5, 9],
+        badge: "Quiet & Aware",
+        headline: "Your food noise is relatively low.",
+        teaser: "The medication is working well. You feel like a different person than you did before — and you are. But quieter isn't the same as resolved.",
+        preview: "You're in the best position of anyone on this journey to build lasting change — because you have the mental bandwidth to do it right now. Most people wait until things get hard again. You don't have to.",
+        group: "quiet-aware"
+      },
+      {
+        range: [10, 14],
+        badge: "Moderate Noise",
+        headline: "Food noise is present, but situational.",
+        teaser: "You have good days and harder days. You can often see exactly when and why the pull happens — stress, boredom, evenings, certain situations. You just don't have a system to interrupt it yet.",
+        preview: "Awareness without a framework only gets you so far. The research-backed tools that actually break situational patterns in the moment are what's missing — and that's a specific, solvable problem.",
+        group: "moderate-noise"
+      },
+      {
+        range: [15, 19],
+        badge: "Significant Noise",
+        headline: "Food noise is a regular presence in your day.",
+        teaser: "You're not imagining it — this is genuinely harder for you than it is for some people on the same medication. That's not a willpower gap. It's a pattern that formed for real reasons, and it requires more than biological quieting to unwind.",
+        preview: "The medication does part of the job. The emotional patterns run deeper than that. Understanding why is the first step — and it changes everything about how you approach the work.",
+        group: "significant-noise"
+      },
+      {
+        range: [20, 25],
+        badge: "Loud & Persistent",
+        headline: "Food noise is loud, frequent, and exhausting.",
+        teaser: "You've likely tried a lot of things. You may have started to wonder if this is just who you are. It isn't. What you're experiencing has a clinical explanation — and a path forward that isn't more willpower.",
+        preview: "This level of noise deserves more than a self-help book. Your full profile breakdown includes an honest assessment of what kind of support actually matches where you are right now.",
+        group: "loud-persistent"
+      }
+    ];
+
+    let currentQ = 0;
+    let answers = new Array(questions.length).fill(null);
+    let currentProfile = null;
+
+    function goTo(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById(pageId);
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function startAssessment() {
+      currentQ = 0;
+      answers = new Array(questions.length).fill(null);
+      renderQuestion();
+      goTo('page-questions');
+    }
+
+    function renderProgress() {
+      const el = document.getElementById('progress');
+      el.innerHTML = questions.map((_, i) => {
+        let cls = 'pip';
+        if (i < currentQ) cls += ' done';
+        else if (i === currentQ) cls += ' active';
+        return `<div class="${cls}"></div>`;
+      }).join('');
+    }
+
+    function renderQuestion() {
+      renderProgress();
+      const q = questions[currentQ];
+      const saved = answers[currentQ];
+      document.getElementById('question-content').innerHTML = `
+        <p class="q-number">Question ${currentQ + 1} of ${questions.length}</p>
+        <p class="q-text">${q.q}</p>
+        <p class="q-hint">${q.hint}</p>
+        <div class="options">
+          ${q.options.map((opt, i) => `
+            <div class="option${saved === i + 1 ? ' selected' : ''}" onclick="selectAnswer(${i + 1}, this)">
+              <div class="option-num">${i + 1}</div>
+              <div class="option-label">${opt}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      const nextBtn = document.getElementById('btn-next');
+      const backBtn = document.getElementById('btn-back');
+      nextBtn.disabled = saved === null;
+      nextBtn.textContent = currentQ === questions.length - 1 ? 'See my result →' : 'Next →';
+      backBtn.style.display = currentQ > 0 ? 'inline-flex' : 'none';
+    }
+
+    function selectAnswer(val, el) {
+      answers[currentQ] = val;
+      document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('btn-next').disabled = false;
+    }
+
+    function nextQuestion() {
+      if (currentQ < questions.length - 1) {
+        currentQ++;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQ > 0) {
+        currentQ--;
+        renderQuestion();
+      }
+    }
+
+    function getProfile() {
+      const total = answers.reduce((a, b) => a + (b || 0), 0);
+      return {
+        total,
+        profile: profiles.find(p => total >= p.range[0] && total <= p.range[1])
+      };
+    }
+
+    function populateResultPage(pagePrefix, profile, total) {
+      document.getElementById(`${pagePrefix}-score`).textContent = total;
+      document.getElementById(`${pagePrefix}-badge`).textContent = profile.badge;
+      document.getElementById(`${pagePrefix}-headline`).textContent = profile.headline;
+      document.getElementById(`${pagePrefix}-teaser`).textContent = profile.teaser;
+      document.getElementById(`${pagePrefix}-preview`).textContent = profile.preview;
+    }
+
+    function showResult() {
+      const { total, profile } = getProfile();
+      currentProfile = profile;
+      populateResultPage('result', profile, total);
+      populateResultPage('skip', profile, total);
+      document.querySelectorAll('.sender-form-wrap').forEach(el => el.style.display = 'none');
+      document.getElementById('sender-form-' + profile.group).style.display = 'block';
+      goTo('page-result');
+    }
+
+  </script>
+
+  <script>
+    (function (s, e, n, d, er) {
+      s['Sender'] = er;
+      s[er] = s[er] || function () {
+        (s[er].q = s[er].q || []).push(arguments)
+      }, s[er].l = 1 * new Date();
+      s[er].on = function(event, callback) {
+        s[er].listeners = s[er].listeners || {};
+        (s[er].listeners[event] = s[er].listeners[event] || []).push(callback);
+      };
+      var a = e.createElement(n),
+          m = e.getElementsByTagName(n)[0];
+      a.async = 1;
+      a.src = d;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+    sender('42891c26866884');
+    sender.on('subscribe', function() {
+      document.getElementById('thanks-profile').textContent = currentProfile ? currentProfile.badge : '';
+      goTo('page-thanks');
+    });
+  </script>
 
 </body>
 </html>
