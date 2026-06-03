@@ -11,7 +11,9 @@ No build step, no framework — raw HTML/CSS files committed directly to `main`.
 index.html                                      ← homepage / sales page
 assessment.html                                 ← Food Noise Assessment landing page
 blog/index.html                                 ← blog index
-blog/what-semaglutide-does-to-your-brain.html   ← first blog post (use as template for all future posts)
+blog/what-semaglutide-does-to-your-brain.html   ← April 2026 (use as template for all future posts)
+blog/emotional-eating-glp1.html                 ← May 2026
+blog/glp1-mood-changes-emotional-flatness.html  ← June 2026
 CNAME                                           ← glp1method.com
 ```
 
@@ -68,10 +70,26 @@ Nav wraps to two rows: logo on row 1, all three links on row 2. Each file's `<st
 }
 ```
 
-## Newsletter Embed (MailerLite)
-Form ID: `mlb2-39918900` — Account: `2146987` — Form: `184760026488898569`
+## Newsletter Embed (Sender)
+Form ID: `azp8Yy` — Sender account ID: `42891c26866884`
 
-Currently embedded in `blog/index.html` and the blog post. Copy the newsletter block from an existing page when creating new blog posts.
+Embed markup (copy from any existing page when creating new blog posts):
+```html
+<div style="text-align: left" class="sender-form-field" data-sender-form-id="azp8Yy"></div>
+```
+Script tag goes before `</body>`:
+```html
+<script>
+  (function (s, e, n, d, er) {
+    s['Sender'] = er;
+    s[er] = s[er] || function () { (s[er].q = s[er].q || []).push(arguments) }, s[er].l = 1 * new Date();
+    s[er].on = function(event, callback) { s[er].listeners = s[er].listeners || {}; (s[er].listeners[event] = s[er].listeners[event] || []).push(callback); };
+    var a = e.createElement(n), m = e.getElementsByTagName(n)[0];
+    a.async = 1; a.src = d; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+  sender('42891c26866884');
+</script>
+```
 
 Section wrapper uses `.newsletter-section` / `.newsletter-inner` classes (CSS in each file's style block):
 - Background: `var(--cream-dark)`
@@ -80,7 +98,28 @@ Section wrapper uses `.newsletter-section` / `.newsletter-inner` classes (CSS in
 ## Blog Post Template
 Use `blog/what-semaglutide-does-to-your-brain.html` as the template for all future posts.
 
-Bottom-of-post order (top → bottom):
+### Required `<head>` SEO tags (adapt per post)
+```html
+<title>[Post Title] | GLP-1 Method</title>
+<meta name="description" content="[~155-char description]">
+<meta property="og:title" content="[Post Title]">
+<meta property="og:description" content="[Same as description]">
+<meta property="og:url" content="https://glp1method.com/blog/[slug]">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="GLP-1 Method">
+<meta property="article:published_time" content="[YYYY-MM-DD]">
+<meta property="article:author" content="Zane Guilfoyle">
+<meta name="author" content="Zane Guilfoyle, LPC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Post Title]">
+<meta name="twitter:description" content="[Same as description]">
+<link rel="canonical" href="https://glp1method.com/blog/[slug]">
+```
+
+### Blog index card order
+Cards in `blog/index.html` must be ordered **newest first**. Add new post card at the top of the `.posts-grid`.
+
+### Bottom-of-post order (top → bottom)
 1. Article body (`.article-body`)
 2. Newsletter section (`<!-- NEWSLETTER -->`)
 3. Food Noise Assessment CTA (`<!-- BOTTOM CTA -->`, dark forest background)
