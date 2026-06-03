@@ -95,15 +95,21 @@ Section wrapper uses `.newsletter-section` / `.newsletter-inner` classes (CSS in
 - Background: `var(--cream-dark)`
 - Padding: `72px 48px` desktop / `56px 24px` mobile
 
-## Blog Post Template
-Use `blog/what-semaglutide-does-to-your-brain.html` as the template for all future posts.
+## Publishing a New Blog Post — Complete Checklist
 
-### Required `<head>` SEO tags (adapt per post)
+**Every time a new post is published, all five steps below are required. Never skip any of them.**
+
+### Step 1 — Create the post file
+- Copy `blog/what-semaglutide-does-to-your-brain.html` as the starting template
+- Name the file: `blog/[descriptive-slug].html` (lowercase, hyphens only, no dates in slug)
+
+### Step 2 — Fill in all SEO tags in `<head>` (required, no exceptions)
+Replace every `[placeholder]` before saving. All tags below must be present:
 ```html
 <title>[Post Title] | GLP-1 Method</title>
-<meta name="description" content="[~155-char description]">
-<meta property="og:title" content="[Post Title]">
-<meta property="og:description" content="[Same as description]">
+<meta name="description" content="[Max 155 chars. Compelling sentence that answers: what will the reader learn?]">
+<meta property="og:title" content="[Post Title — same as <title> minus the site name suffix]">
+<meta property="og:description" content="[Same as meta description]">
 <meta property="og:url" content="https://glp1method.com/blog/[slug]">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="GLP-1 Method">
@@ -112,18 +118,46 @@ Use `blog/what-semaglutide-does-to-your-brain.html` as the template for all futu
 <meta name="author" content="Zane Guilfoyle, LPC">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="[Post Title]">
-<meta name="twitter:description" content="[Same as description]">
+<meta name="twitter:description" content="[Same as meta description]">
 <link rel="canonical" href="https://glp1method.com/blog/[slug]">
 ```
 
-### Blog index card order
-Cards in `blog/index.html` must be ordered **newest first**. Add new post card at the top of the `.posts-grid`.
+### Step 3 — Add the card to `blog/index.html`
+- Open `blog/index.html` and locate the `<div class="posts-grid">` element
+- Insert the new card **first** inside `.posts-grid` (newest post always appears at top)
+- Card template:
+```html
+<!-- POST: [Post Title] -->
+<a href="/blog/[slug]" class="post-card">
+  <div class="post-card-thumb">
+    <div class="post-card-thumb-bar"></div>
+    <div class="post-card-thumb-label">[Short 2-line label<br>with <em>italic accent word</em>]</div>
+  </div>
+  <div class="post-card-body">
+    <div class="post-card-meta">
+      <span class="post-card-date">Zane Guilfoyle, LPC</span>
+      <span class="post-card-meta-dot"></span>
+      <span class="post-card-date">[Month YYYY]</span>
+    </div>
+    <div class="post-card-title">[Post Title]</div>
+    <p class="post-card-excerpt">[2–3 sentence excerpt. Match the tone of existing cards — clinical but accessible.]</p>
+    <span class="post-card-read">Read the article →</span>
+  </div>
+</a>
+```
 
-### Bottom-of-post order (top → bottom)
+### Step 4 — Verify bottom-of-post order
+Inside the post HTML, sections must appear in this exact order:
 1. Article body (`.article-body`)
-2. Newsletter section (`<!-- NEWSLETTER -->`)
+2. Newsletter section (`<!-- NEWSLETTER -->` with Sender embed)
 3. Food Noise Assessment CTA (`<!-- BOTTOM CTA -->`, dark forest background)
 4. Footer
+
+### Step 5 — Update this file
+Add the new post to the File Structure section at the top of this document:
+```
+blog/[slug].html   ← [Month YYYY]
+```
 
 ## Key External Links
 - Workbook (Gumroad): `https://glp1method.gumroad.com/l/tuajms`
