@@ -14,6 +14,7 @@ blog/index.html                                 ← blog index
 blog/what-semaglutide-does-to-your-brain.html   ← April 2026 (use as template for all future posts)
 blog/emotional-eating-glp1.html                 ← May 2026
 blog/glp1-mood-changes-emotional-flatness.html  ← June 2026
+blog/stress-eating-not-willpower.html           ← July 2026
 CNAME                                           ← glp1method.com
 ```
 
